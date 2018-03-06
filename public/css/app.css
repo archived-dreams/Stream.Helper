@@ -1,0 +1,78 @@
+body {
+  padding-bottom: 3rem;
+}
+
+[data-element="app-status"] {
+  margin-right: 5px;
+}
+
+.page-content {
+  margin-top: 1rem;
+}
+
+.widget-title .fa-chevron-down {
+  float: right;
+  margin-top: 3px;
+  cursor: pointer;
+}
+
+.navbar-brand .shadow {
+  text-shadow: 1px 1px 1px black, 0 0 0.5em #fff;
+}
+
+.copyright {
+  display: block;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+[data-element="browser-sound-widget"] .list-group-item {
+  position: relative;
+  overflow: hidden;
+  min-height: 110px;
+}
+
+[data-element="browser-sound-widget"] .list-group-item .content {
+  position: absolute;
+  z-index: 2;
+}
+
+[data-element="browser-sound-widget"] [data-value="title"], [data-element="browser-sound-widget"] [data-value="timeline"] {
+  display: block;
+  width: 100%;
+  padding-right: 65px;
+}
+
+[data-element="browser-sound-widget"] .list-group-item .background-image {
+  position: absolute;
+  opacity: 0.25;
+  z-index: 1;
+  top: -1rem;
+  left: -1rem;
+  width: calc(100% + 2rem);
+  height: calc(100% + 2rem);
+  filter: blur(1.5rem)
+}
+
+[data-element="browser-sound-widget"] [data-value="control"] .btn-secondary {
+  background: rgba(0, 0, 0, 0.4);
+  border-color: rgba(0, 0, 0, 0);
+  margin: 0px;
+}
+
+[data-element="browser-sound-widget"] .list-group-item .cover {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border-bottom-left-radius: 3px;
+  z-index: 1;
+  max-height: 62px;
+  max-width: 62px;
+}
+
+.browser-sound-widget-volume {
+  height: 85px;
+  padding: 20px 15px;
+  position: relative;
+  overflow: hidden;
+}

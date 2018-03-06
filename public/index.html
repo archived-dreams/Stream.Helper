@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Управление стримом">
+    <meta name="author" content="Ivan Danilov">
+    <title>Stream.Helper</title>
+    <base href="https://klybok.net:3001">
+    <link href="./css/bootstrap.css" rel="stylesheet">
+    <link href="./css/app.css" rel="stylesheet">
+    <link href="./css/nouislider.css" rel="stylesheet">
+    <link href="./css/jquery.highlight.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <!-- Шапка -->
+    <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white"><i class="fas fa-cogs text-muted fa-fw"></i> Настройки</h4>
+              <!-- Код -->
+              <p class="text-muted mb-1">Для работы с системой укажите уникальный ключ (UUID):</p>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-key fa-fw"></i></span>
+                </div>
+                <div class="input-group-prepend">
+                  <button class="btn btn-light" type="button" data-secret-generate><i class="fas fa-sync fa-fw"></i></button>
+                </div>
+                <input type="text" class="form-control" placeholder="Поле для ввода ключа" data-secret>
+                <div class="input-group-append">
+                  <button class="btn btn-secondary" type="button" data-secret-save>Применить</button>
+                </div>
+              </div>
+              <!-- Интеграция -->
+              <div class="text-muted mb-1 d-none d-md-inline"><br />
+                Для интеграции встройте в требуемые страницы код (С API можно ознакомиться внутри скрипта):
+                <pre class="code" lang="js">
+                  window.addEventListener("load", () => {
+                    var script = document.createElement("script");
+                    script.setAttribute("data-stream-helper-secret", 'Ваш_уникальный_ключ');
+                    window.streamHelper_customHandlers = {}; // Пользовательские обработчики
+                    script.src = "https://klybok.net:3001/js/remote.js";
+                    document.body.appendChild(script);
+                  });
+                </pre>
+                <div>
+                  Рекомендуемые плагины:
+                  <a href="https://chrome.google.com/webstore/detail/css-and-javascript-inject/ckddknfdmcemedlmmebildepcmneakaa"><i class="fab fa-chrome fa-fw"></i> Chrome</a>,
+                  <a href="https://addons.mozilla.org/mk/firefox/addon/custom-style-script/"><i class="fab fa-firefox fa-fw"></i> Firefox</a>.
+                </div>
+              </div>
+            </div>
+            <!-- Статус -->
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white"><i class="fas fa-stethoscope text-muted fa-fw"></i> Диагностика</h4>
+              <!-- Статус -->
+              <div data-element="app-status" class="text-muted">
+                <strong>Статус:</strong>
+                <i class="fas fa-circle fa-fw text-warning"></i>
+                <span>Подключение...</span>
+              </div>
+              <!-- Ping -->
+              <div data-element="app-ping" class="text-muted">
+                <strong>Ping:</strong> <span>--</span> мс.
+              </div>
+              <!-- ID -->
+              <div data-element="app-userId" class="text-muted">
+                <strong>Клиент:</strong> <span>--</span>.
+              </div>
+              <!-- Версия Socket.io -->
+              <div data-element="app-version" class="text-muted">
+                <strong>Версия сервера:</strong> <span>--</span>.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+          <!-- Логотип -->
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <i class="fab fa-nintendo-switch fa-fw"></i>
+            Stream<span class="shadow">.Helper</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+
+    <!-- Контент -->
+    <div class="container page-content" style="filter: blur(6px); pointer-events: none;">
+      <!-- Управление звуком вкладки -->
+      <div data-element="browser-sound-widget">
+          <!-- Заголовок -->
+          <h3 class="mb-3 widget-title">
+            <!-- Иконка -->
+            <i class="fas fa-volume-up fa-fw"></i>
+            <!-- Заголовок -->
+            Управление плеерами
+            <!-- Колапс -->
+            <i class="fas fa-chevron-down" data-toggle="collapse" data-target="[data-element='browser-sound-widget'] .widget-collapse" aria-expanded="true"></i>
+          </h3>
+          <!-- Контент плагина -->
+          <div class="widget-collapse collapse show">
+            <div class="list-group mb-3 widget"></div>
+          </div>
+      </div>
+    </div>
+
+    <!-- Копирайт -->
+    <div class="copyright">
+      <a href="http://klybok.net" class="btn btn-light my-2" target="_blank" data-placement="top" data-toggle="tooltip" title="Разработка и безопасность">
+        <i class="fas fa-code"></i> Klybok.NET
+      </a>
+    </div>
+
+
+    <script src="./socket.io/socket.io.js"></script>
+    <script src="./js/tether.min.js"></script>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/jquery.cookie.js"></script>
+    <script src="./js/jquery.highlight.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/bootbox.js"></script>
+    <script src="./js/nouislider.js"></script>
+    <script src="./js/bootstrap-notify.js"></script>
+    <script src="./dist/app.js"></script>
+  </body>
+</html>

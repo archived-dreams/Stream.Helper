@@ -1,0 +1,21 @@
+{
+  "name": "stream-helper",
+  "version": "0.0.1",
+  "description": "Stream.Helper",
+  "dependencies": {
+    "express": "^4.15.2",
+    "socket.io": "^2.0.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-es6-transpiler": "^1.0.1",
+    "gulp-jshint": "^2.1.0",
+    "gulp-minify": "^2.1.0",
+    "gulp-uglify": "^3.0.0"
+  }
+}
