@@ -20,4 +20,6 @@
 ```
 В файлах __./public/js/remote.js__ (var url) и __./public/index.html__ (script.src) укажите свой домен.
 При внесении правок в файл __./public/js/app.js__ выполните команду:
-```# gulp```
+```
+# gulp
+```
